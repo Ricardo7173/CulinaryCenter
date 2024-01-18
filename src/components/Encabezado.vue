@@ -59,9 +59,12 @@
                     <a class="button is-warning" @click="irAPerfil">
                        {{ nombreUsuario }}
                     </a>
-                    <a class="button is-light" @click="salir">
+                    <!--
+                        <a class="button is-light" @click="salir">
                        Salir
                     </a>
+                    -->
+                    
                 </div>
             </b-navbar-item>
         </template>
