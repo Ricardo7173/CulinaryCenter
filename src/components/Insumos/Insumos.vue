@@ -7,7 +7,7 @@
           <p class="title is-1 has-text-weight-bold">
             <b-icon icon="food-fork-drink" size="is-large" type="is-primary">
             </b-icon>
-            Insumos
+            Alimento
             <span class="has-text-grey title is-4">
                 {{ insumos.length }} resultados
             </span>
@@ -25,7 +25,7 @@
                 tag="router-link"
                 to="/registrar-insumo"
             >
-                Añadir insumo
+                Añadir alimento
             </b-button>
         </p>
       </div>
@@ -54,7 +54,7 @@
       <b-field grouped group-multiline>
         <b-field label="Tipo de insumo" expanded>
           <b-select v-model="filtros.tipo" @change.native="busquedaAvanzada">
-            <option value="" selected>Selecciona el tipo de insumo</option>
+            <option value="" selected>Selecciona el tipo de alimento</option>
             <option value="PLATILLO">Platillo</option>
             <option value="BEBIDA">Bebida</option>
           </b-select>
@@ -64,7 +64,7 @@
             v-model="filtros.categoria"
             @change.native="busquedaAvanzada"
           >
-            <option value="" selected>Selecciona el tipo de insumo</option>
+            <option value="" selected>Selecciona el tipo de alimentos</option>
             <option
               v-for="categoria in categorias"
               :key="categoria.id"

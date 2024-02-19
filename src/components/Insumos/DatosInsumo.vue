@@ -5,7 +5,7 @@
         </ul>
         <b-field label="Tipo" >
             <b-select  v-model="insumo.tipo" @change.native="obtenerCategorias">
-                <option value="" disabled selected>Selecciona el tipo de insumo</option>
+                <option value="" disabled selected>Selecciona el tipo de alimento</option>
                 <option value="PLATILLO">
                     Platillo
                 </option>
@@ -16,16 +16,16 @@
         </b-field>
 
         <b-field label="Código" >
-            <b-input type="text" placeholder="Código identificador del insumo" v-model="insumo.codigo"></b-input>
+            <b-input type="text" placeholder="Código identificador del alimento" v-model="insumo.codigo"></b-input>
         </b-field>
 
         <b-field label="Nombre" >
-            <b-input type="text" placeholder="Nombre del insumo" v-model="insumo.nombre"></b-input>
+            <b-input type="text" placeholder="Nombre del alimento" v-model="insumo.nombre"></b-input>
         </b-field>
 
         <b-field label="Descripción" >
             <b-input maxlength="200" type="textarea" 
-            placeholder="Escribe una pequeña descripción del insumo" v-model="insumo.descripcion"></b-input>
+            placeholder="Escribe una pequeña descripción del alimento" v-model="insumo.descripcion"></b-input>
         </b-field>
 
         <b-field label="Categoría" >
@@ -38,7 +38,7 @@
         </b-field>
 
         <b-field label="Precio" >
-            <b-input type="number" placeholder="Precio de venta del insumo" v-model="insumo.precio"></b-input>
+            <b-input type="number" placeholder="Precio de venta del alimento" v-model="insumo.precio"></b-input>
         </b-field>
         <div class="has-text-centered">
             <b-button type="is-success" size="is-large" icon-left="check" @click="registrar">Registrar</b-button>

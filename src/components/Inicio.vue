@@ -121,7 +121,7 @@
                 <div class="box">
                     <div class="title is-4 has-text-grey ">
                         <b-icon icon="food-fork-drink"></b-icon>
-                        Insumos más vendidos
+                        Alimentos más vendidos
 
                         <b-field class="is-pulled-right">
                             <b-select
@@ -346,8 +346,8 @@ export default ({
                         ruta: "/usuarios"
                     },
                     {
-                        encabezado: "Insumos registrados",
-                        titulo: "Insumos",
+                        encabezado: "Alimentos registrados",
+                        titulo: "Alimentos",
                         total: this.resultadoCartas.numeroInsumos,
                         icono: "food-fork-drink",
                         colorTexto: "has-text-warning",

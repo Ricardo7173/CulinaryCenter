@@ -1,9 +1,9 @@
 <template>
     <section>
-        <p class="title is-1 has-text-weight-bold">Editar Insumo</p>
+        <p class="title is-1 has-text-weight-bold">Editar Alimento</p>
         <b-breadcrumb align="is-left" >
             <b-breadcrumb-item tag='router-link' to="/">Inicio</b-breadcrumb-item>
-            <b-breadcrumb-item tag='router-link' to="/insumos">Insumos</b-breadcrumb-item>
+            <b-breadcrumb-item tag='router-link' to="/insumos">Alimento</b-breadcrumb-item>
         </b-breadcrumb>
         <datos-insumo @registrado="onRegistrado" :insumo="insumo"></datos-insumo>        
         <b-loading :is-full-page="true" v-model="cargando" :can-cancel="false"></b-loading>

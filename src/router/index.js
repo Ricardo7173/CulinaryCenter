@@ -16,6 +16,7 @@ import Perfil from '../components/Usuarios/Perfil'
 import CambiarPassword from '../components/Usuarios/CambiarPassword'
 import Inicio from '../components/Inicio'
 import ReporteVentas from '../components/Ventas/ReporteVentas'
+import NotFound from '../components/NotFound/NotFound' 
 
 Vue.use(Router)
 
@@ -93,5 +94,10 @@ export default new Router({
       name: 'ReporteVentas',
       component: ReporteVentas
     },
+    {
+      path: '*',
+      name: 'NotFound',
+      component: NotFound
+    }
   ]
 })

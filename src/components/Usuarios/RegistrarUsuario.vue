@@ -47,7 +47,7 @@ export default ({
                         telefono: ""
                     }
                     this.$buefy.toast.open({
-                        message: 'Usuario registrado. Recuerda que la contraseña por defecto es PacoHunterDev',
+                        message: 'Usuario registrado.',
                         type: 'is-success'
                     })
                     this.cargando = false

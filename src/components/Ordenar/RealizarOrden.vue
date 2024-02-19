@@ -38,7 +38,7 @@
                                 aria-controls="contentIdForA11y3"
                                 :aria-expanded="props.open">
                                 <p class="card-header-title">
-                                    Insumos en la orden
+                                    Alimentos en la orden
                                 </p>
                                 <a class="card-header-icon">
                                     <b-icon
@@ -93,7 +93,7 @@
                                 <b-button type="is-success" icon-left="cash" @click="cobrar(mesa)">Cobrar</b-button>
                             </p>
                             <p class="control">
-                                <b-button type="is-info" icon-left="plus" @click="ocuparMesa(mesa)">Agregar  insumos</b-button>
+                                <b-button type="is-info" icon-left="plus" @click="ocuparMesa(mesa)">Agregar  alimentos</b-button>
                             </p>
                             <p class="control">
                                 <b-button type="is-warning" icon-left="check" v-if="checkedRows.length > 0" @click="marcarInsumosEntregados(mesa)">Marcar entrega</b-button>
@@ -231,8 +231,9 @@ export default ({
             })
 
         },
-
-        cobrar(mesa){
+/**
+ * 
+ * cobrar(mesa){
             this.$buefy.dialog.prompt({
                 title: `Cobrar a la mesa #` + mesa.mesa.idMesa,
                 message: `El cliente debe pagar $` + mesa.mesa.total,
@@ -282,6 +283,8 @@ export default ({
                 }
             })
         },
+ */
+        
 
         crearMesas(){
             this.cargando = true
