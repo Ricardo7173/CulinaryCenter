@@ -17,6 +17,8 @@ import CambiarPassword from '../components/Usuarios/CambiarPassword'
 import Inicio from '../components/Inicio'
 import ReporteVentas from '../components/Ventas/ReporteVentas'
 import NotFound from '../components/NotFound/NotFound' 
+import InicioClientes from '../components/Clientes/InicioClientes'
+import MapaSitio from '../components/MapaSitio/Mapa'
 
 Vue.use(Router)
 
@@ -97,7 +99,19 @@ export default new Router({
     {
       path: '*',
       name: 'NotFound',
-      component: NotFound
-    }
+      component: NotFound,
+      meta: { noMostrarEncabezadoPie: true }   // Es para ocultar el encabezado y pie de ventas
+    },
+    {
+      path: '/inicio',
+      name: 'InicioClientes',
+      component: InicioClientes,
+      meta: { noMostrarEncabezadoPie: true }   // Es para ocultar el encabezado y pie de ventas
+    },
+    {
+      path: '/mapa',
+      name: 'MapaSitio',
+      component: MapaSitio
+    },
   ]
 })

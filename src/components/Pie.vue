@@ -6,7 +6,7 @@
                     <img src="@/assets/logo.jpeg" alt="logo" width="125" height="125">   
                 </span>
                 <p class="titulo content has-text-centered title is-3 has-text-white">
-                    <strong>{{ datosLocal. nombre }}</strong>. Teléfono <strong>{{ datosLocal.telefono }}</strong>
+                    <strong>Sitio desarrollado por CulinaryCenter</strong>
                 </p>  
             </div>
 

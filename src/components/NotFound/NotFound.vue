@@ -1,24 +1,30 @@
 <template>
-    <div class="not-found">
-        <h1>404 - Página no encontrada</h1>
-        <p>Lo sentimos, la página que buscas no se encontró.</p>
+    <div class="error-container">
+      <div class="error-content">
+        <h1>¡Oops!</h1>
+        <p>Parece que te has perdido en el ciberespacio.</p>
+        <p>No te preocupes, estamos aquí para ayudarte a volver al camino correcto.</p>
         <div class="background-image"></div>
         <router-link to="/" class="home-button">Volver al inicio</router-link>
+      </div>
     </div>
-</template>
-  
-<script>
-export default {
-    name: 'NotFound'
-}
-</script>
-  
+  </template>
+
 <style scoped>
-.not-found {
-    position: relative;
-    text-align: center;
-    color: white;
-    /* Color del texto */
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.error-content {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.501); /* Fondo semi-transparente para que el texto sea legible */
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .background-image {
@@ -50,8 +56,33 @@ export default {
     transition: background-color 0.3s ease;
 }
 
+h1 {
+  font-size: 3em;
+  color: #e74c3c;
+}
+
+p {
+  margin: 10px 0;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
 .home-button:hover {
     background-color: #0056b3;
     /* Color del botón al pasar el cursor */
-}</style>
-  
+}
+</style>
+

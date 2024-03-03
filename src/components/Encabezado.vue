@@ -49,6 +49,11 @@
                 <span></span>
                 Configurar
             </b-navbar-item>
+            <b-navbar-item tag="router-link" :to="{ path: '/mapa' }">
+                <b-icon icon="sitemap-outline"></b-icon>
+                <span></span>
+                Mapa del Sitio
+            </b-navbar-item>
         </template>
 
         <template #end>
