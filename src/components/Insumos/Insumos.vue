@@ -74,10 +74,10 @@
             </option>
           </b-select>
         </b-field>
-        <b-field label="Nombre del insumo" expanded>
+        <b-field label="Nombre del alimento" expanded>
           <b-input
             type="text"
-            placeholder="Nombre del insumo que deseas buscar"
+            placeholder="Nombre del alimento que deseas buscar"
             v-model="filtros.nombre"
             @input="busquedaAvanzada"
           ></b-input>
