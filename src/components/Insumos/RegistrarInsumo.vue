@@ -3,7 +3,7 @@
         <p class="title is-1 has-text-weight-bold">Registrar Insumo</p>
         <b-breadcrumb align="is-left" >
             <b-breadcrumb-item tag='router-link' to="/">Inicio</b-breadcrumb-item>
-            <b-breadcrumb-item tag='router-link' to="/insumos">Insumos</b-breadcrumb-item>
+            <b-breadcrumb-item tag='router-link' to="/insumos">Alimentos</b-breadcrumb-item>
         </b-breadcrumb>
         <b-loading :is-full-page="true" v-model="cargando" :can-cancel="false"></b-loading>
         <datos-insumo @registrado="onRegistrado" :insumo="insumo"></datos-insumo>

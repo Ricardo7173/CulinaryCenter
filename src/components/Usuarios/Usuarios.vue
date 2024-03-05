@@ -17,12 +17,11 @@
             icon-left="account-multiple-plus"
             class="is-pulled-right"
             tag="router-link"
-            
-            >
+            to="/registrar-usuario">
             Añadir usuario
             </b-button>
         </p>
-<!--to="/registrar-usuario"-->
+
         <b-select v-model="perPage" >
             <option value="5">5 por página</option>
             <option value="10">10 por página</option>
@@ -108,7 +107,7 @@ export default {
     },
 
     methods: {
-       /* eliminar(usuario){
+       eliminar(usuario){
             this.$buefy.dialog.confirm({
                 title: 'Eliminar el usuario ' + usuario.nombre,
                 message: '¿Seguro que deseas eliminar el usuario? Esta acción no se puede deshacer',
@@ -127,7 +126,7 @@ export default {
                         
                 }
             })
-        },*/
+        },
 
         editar(idUsuario) {
             this.$router.push({

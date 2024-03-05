@@ -47,7 +47,7 @@ export default ({
                         telefono: ""
                     }
                     this.$buefy.toast.open({
-                        message: 'Usuario registrado.',
+                        message: 'Usuario registrado. Recuerda que la contraseña por defecto es RicardoGG7173',
                         type: 'is-success'
                     })
                     this.cargando = false

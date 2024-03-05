@@ -6,6 +6,7 @@
                 <span class="has-text-weight-bold">{{ datosLocal.nombre }}</span>
             </router-link>
         </template>
+
         <template #start>
 
             <b-navbar-item tag="router-link" :to="{ path: '/' }">
@@ -63,17 +64,17 @@
                     <a class="button is-warning" @click="irAPerfil">
                         {{ nombreUsuario }}
                     </a>
-                    <!--
-                        <a class="button is-light" @click="salir">
-                       Salir
+                    <a class="button is-light" @click="salir">
+                        Salir
                     </a>
-                    -->
+
 
                 </div>
             </b-navbar-item>
         </template>
     </b-navbar>
 </template>
+
 <script>
 import HttpService from '../Servicios/HttpService'
 import Utiles from '../Servicios/Utiles'
