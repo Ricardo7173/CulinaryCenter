@@ -2,7 +2,7 @@
     <section>
         <br>
         <div class="tile is-ancestor">
-            <div class="tile is-parent" v-for="(carta, index) in cartas"  :key="index">
+            <div class="tile is-parent" v-for="(carta, index) in cartas" :key="index">
                 <div class="card is-card-widget tile is-child">
                     <div class="card-header">
                         <div class="card-header-title">
@@ -11,9 +11,9 @@
                                     <b-icon icon="cogs" size="is-small"></b-icon>
                                 </b-button>
                             </span>
-                            
-                            <p>{{ carta.encabezado}}</p>
-                            
+
+                            <p>{{ carta.encabezado }}</p>
+
                         </div>
                     </div>
                     <div class="card-content">
@@ -42,71 +42,59 @@
                     <p class="title is-4 has-text-grey ">
                         <b-icon icon="clock-outline"></b-icon>
                         Ventas por hora
-                        <span class="tag is-primary is-large is-pulled-right"> ${{totalVentasHora}}</span>
+                        <span class="tag is-primary is-large is-pulled-right"> ${{ totalVentasHora }}</span>
 
                     </p>
                     <b-field label="Selecciona un periodo de tiempo">
-                        <b-datepicker
-                            placeholder="Click para seleccionar..."
-                            size="is-small"
-                            v-model="periodoHoras"
-                            @input="busquedaAvanzada('hora')"
-                            range>
+                        <b-datepicker placeholder="Click para seleccionar..." size="is-small" v-model="periodoHoras"
+                            @input="busquedaAvanzada('hora')" range>
                         </b-datepicker>
                     </b-field>
                     <div id="contenedor-hora">
                         <canvas id="grafica-hora"></canvas>
                     </div>
-                </div> 
+                </div>
             </div>
             <div class="column is-one-third">
                 <div class="box">
                     <p class="title is-4 has-text-grey ">
                         <b-icon icon="account"></b-icon>
                         Ventas de usuarios
-                        <span class="tag is-primary is-large is-pulled-right"> ${{totalVentasUsuarios}}</span>
+                        <span class="tag is-primary is-large is-pulled-right"> ${{ totalVentasUsuarios }}</span>
                     </p>
                     <b-field label="Selecciona un periodo de tiempo">
-                        <b-datepicker
-                            placeholder="Click para seleccionar..."
-                            size="is-small"
-                            v-model="periodoUsuarios"
-                            @input="busquedaAvanzada('usuario')"
-                            range>
+                        <b-datepicker placeholder="Click para seleccionar..." size="is-small" v-model="periodoUsuarios"
+                            @input="busquedaAvanzada('usuario')" range>
                         </b-datepicker>
                     </b-field>
                     <div id="contenedor-usuarios">
                         <canvas id="grafica-usuarios"></canvas>
                     </div>
-                </div> 
+                </div>
             </div>
             <div class="column is-one-third">
                 <div class="box">
                     <p class="title is-4 has-text-grey ">
                         <b-icon icon="calendar-week"></b-icon>
                         Ventas de la semana
-                        <span class="tag is-primary is-large is-pulled-right"> ${{totalVentasSemana}}</span>
+                        <span class="tag is-primary is-large is-pulled-right"> ${{ totalVentasSemana }}</span>
                     </p>
-                    
+
                     <div id="contenedor-semana">
                         <canvas id="grafica-semana"></canvas>
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
         <div class="box">
             <p class="title is-4 has-text-grey ">
                 <b-icon icon="calendar-month"></b-icon>
-                Ventas por año 
-                <span class="tag is-primary is-large is-pulled-right"> ${{totalVentasMeses}}</span>
+                Ventas por año
+                <span class="tag is-primary is-large is-pulled-right"> ${{ totalVentasMeses }}</span>
                 <b-field label="Selecciona un año">
-                    <b-select
-                        size="is-small"
-                        v-model="anioSeleccionado"
-                        @change.native="busquedaAvanzada('mes')"
+                    <b-select size="is-small" v-model="anioSeleccionado" @change.native="busquedaAvanzada('mes')"
                         expanded>
-                        <option v-for="(anio, index) in listaAnios" 
-                        :key="index" :value="anio">
+                        <option v-for="(anio, index) in listaAnios" :key="index" :value="anio">
                             {{ anio }}
                         </option>
                     </b-select>
@@ -124,10 +112,7 @@
                         Alimentos más vendidos
 
                         <b-field class="is-pulled-right">
-                            <b-select
-                                v-model="limiteSeleccionado"
-                                @change.native="busquedaAvanzada('limite')"
-                                expanded>
+                            <b-select v-model="limiteSeleccionado" @change.native="busquedaAvanzada('limite')" expanded>
                                 <option value="5">5</option>
                                 <option value="10">10</option>
                                 <option value="15">15</option>
@@ -135,27 +120,15 @@
                                 <option value="50">50</option>
                             </b-select>
                         </b-field>
-                    </div> 
+                    </div>
 
-                    <b-table
-                        :data="insumosMasVendidos"
-                        :bordered="true"
-                        :striped="true"
-                    >
+                    <b-table :data="insumosMasVendidos" :bordered="true" :striped="true">
 
-                        <b-table-column field="icono" label=""  v-slot="props">
-                            <b-icon
-                            icon="noodles"
-                            size="is-small"
-                            type="is-info"
-                            v-if="props.row.tipo === 'PLATILLO'">
+                        <b-table-column field="icono" label="" v-slot="props">
+                            <b-icon icon="noodles" size="is-small" type="is-info" v-if="props.row.tipo === 'PLATILLO'">
                             </b-icon>
 
-                            <b-icon
-                            icon="cup"
-                            size="is-small"
-                            type="is-success"
-                            v-if="props.row.tipo === 'BEBIDA'">
+                            <b-icon icon="cup" size="is-small" type="is-success" v-if="props.row.tipo === 'BEBIDA'">
                             </b-icon>
                         </b-table-column>
                         <b-table-column field="nombre" label="Nombre" v-slot="props">
@@ -168,12 +141,11 @@
                             ${{ props.row.total }}
                         </b-table-column>
                         <b-table-column field="progreso" label="Progreso" v-slot="props">
-                            <b-progress 
-                            :value="props.row.progreso" 
-                            show-value format="percent"
-                            :type="{'is-success' : props.row.progreso >= 90,
-                            'is-info' : props.row.progreso >= 70 && props.row.progreso < 90,
-                            'is-danger' : props.row.progreso < 70}">
+                            <b-progress :value="props.row.progreso" show-value format="percent" :type="{
+                'is-success': props.row.progreso >= 90,
+                'is-info': props.row.progreso >= 70 && props.row.progreso < 90,
+                'is-danger': props.row.progreso < 70
+            }">
                             </b-progress>
                         </b-table-column>
                     </b-table>
@@ -184,12 +156,8 @@
                     <p class="title is-4 has-text-grey ">
                         <b-icon icon="table-furniture"></b-icon>
                         Mesas más ocupadas
-                    </p> 
-                    <b-table
-                        :data="totalesPorMesa"
-                        :bordered="true"
-                        :striped="true"
-                    >
+                    </p>
+                    <b-table :data="totalesPorMesa" :bordered="true" :striped="true">
                         <b-table-column field="idMesa" label="Mesa" v-slot="props">
                             Mesa #{{ props.row.idMesa }}
                         </b-table-column>
@@ -197,12 +165,11 @@
                             ${{ props.row.total }}
                         </b-table-column>
                         <b-table-column field="progreso" label="Progreso" v-slot="props">
-                            <b-progress 
-                            :value="props.row.progreso" 
-                            show-value format="percent"
-                            :type="{'is-success' : props.row.progreso >= 90,
-                            'is-info' : props.row.progreso >= 70 && props.row.progreso < 90,
-                            'is-danger' : props.row.progreso < 70}">
+                            <b-progress :value="props.row.progreso" show-value format="percent" :type="{
+                'is-success': props.row.progreso >= 90,
+                'is-info': props.row.progreso >= 70 && props.row.progreso < 90,
+                'is-danger': props.row.progreso < 70
+            }">
                             </b-progress>
                         </b-table-column>
                     </b-table>
@@ -210,9 +177,22 @@
             </div>
         </div>
         <b-loading :is-full-page="true" v-model="cargando" :can-cancel="false"></b-loading>
-
+        <div class="container text-center" style=" margin-bottom: 4rem; justify-content: center;">
+            <div class="row" style="text-align: center; height: 1cm;">
+                <div class="col"
+                    style="border: 2px solid #B197FC; border-radius: 8px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+                    <b-icon icon="sitemap-outline"></b-icon>
+                    <hr>
+                    <b-button type="is-primary" style="margin-bottom: 1rem;">
+                        <router-link to="/mapa" class="home-button" style="text-decoration: none; color: #333;">Mapa del
+                            Sitio</router-link>
+                    </b-button>
+                </div>
+            </div>
+        </div>
     </section>
 </template>
+
 <script>
 import HttpService from '../Servicios/HttpService'
 import Utiles from '../Servicios/Utiles'
@@ -221,7 +201,7 @@ import Utiles from '../Servicios/Utiles'
 export default ({
     name: "Inicio",
 
-    data: ()=> ({
+    data: () => ({
         ventasSemana: [],
         ventasHora: [],
         ventasMeses: [],
@@ -242,45 +222,45 @@ export default ({
         listaAnios: [],
         limiteSeleccionado: 5,
         filtros: {
-            hora: {inicio: "", fin: ""},
-            usuarios: {inicio:"", fin:""}
+            hora: { inicio: "", fin: "" },
+            usuarios: { inicio: "", fin: "" }
         }
     }),
 
-    mounted(){
+    mounted() {
         this.filtros.anio = this.anioSeleccionado
         this.filtros.limite = this.limiteSeleccionado
-        this.obtenerDatos()  
+        this.obtenerDatos()
         this.llenarListaAnios()
     },
 
     methods: {
 
         calcularProgreso(arreglo) {
-           
-                let mayor = (arreglo[0]) ? arreglo[0].total:0
-                arreglo.forEach(elemento => {
-                    elemento.progreso = parseInt(elemento.total * 100 / mayor)
-                });
-                return arreglo
-            
-            
+
+            let mayor = (arreglo[0]) ? arreglo[0].total : 0
+            arreglo.forEach(elemento => {
+                elemento.progreso = parseInt(elemento.total * 100 / mayor)
+            });
+            return arreglo
+
+
         },
 
-        busquedaAvanzada(tipo, ){
-            switch(tipo) {
+        busquedaAvanzada(tipo,) {
+            switch (tipo) {
                 case "hora":
                     this.filtros.hora = {
-                        inicio: this.periodoHoras[0].toISOString().substring(0, 10), 
+                        inicio: this.periodoHoras[0].toISOString().substring(0, 10),
                         fin: this.periodoHoras[1].toISOString().substring(0, 10)
-                        }
+                    }
                     break
-                
+
                 case "usuario":
                     this.filtros.usuarios = {
-                        inicio: this.periodoUsuarios[0].toISOString().substring(0, 10), 
+                        inicio: this.periodoUsuarios[0].toISOString().substring(0, 10),
                         fin: this.periodoUsuarios[1].toISOString().substring(0, 10)
-                        }
+                    }
                     break
 
                 case "mes":
@@ -294,79 +274,79 @@ export default ({
         },
 
         llenarListaAnios() {
-            for(let i = 2015; i <= this.anioSeleccionado; i++) {
+            for (let i = 2015; i <= this.anioSeleccionado; i++) {
                 this.listaAnios.push(i)
             }
-        }, 
-
-        obtenerDatos(){
-            this.cargando = true
-            HttpService.obtenerConDatos(this.filtros, "inicio.php")
-            .then(resultado => { 
-                this.ventasSemana = Utiles.cambiarDiaSemana(resultado.ventasDiasSemana)
-                this.ventasHora = resultado.ventasHora
-                this.ventasMeses = Utiles.cambiarNumeroANombreMes(resultado.ventasMeses)
-                this.ventasUsuarios = resultado.ventasUsuario
-                this.resultadoCartas = resultado.cartas
-                this.insumosMasVendidos = this.calcularProgreso(resultado.insumosMasVendidos)
-                this.totalesPorMesa = this.calcularProgreso(resultado.totalesPorMesa)
-                
-                this.totalVentasHora = Utiles.calcularTotales(this.ventasHora)
-                this.totalVentasSemana = Utiles.calcularTotales(this.ventasSemana)
-                this.totalVentasUsuarios = Utiles.calcularTotales(this.ventasUsuarios)
-                this.totalVentasMeses = Utiles.calcularTotales(this.ventasMeses)
-
-                Utiles.generarGrafica(this.ventasSemana, "#contenedor-semana", "#grafica-semana", "grafica-semana")
-                Utiles.generarGrafica(this.ventasHora, "#contenedor-hora", "#grafica-hora", "grafica-hora")
-                Utiles.generarGrafica(this.ventasMeses, "#contenedor-mes", "#grafica-mes", "grafica-mes")
-                Utiles.generarGrafica(this.ventasUsuarios, "#contenedor-usuarios", "#grafica-usuarios", "grafica-usuarios")
-                this.cartas = [
-                    {
-                        encabezado: "Ventas del día",
-                        titulo: "Ventas hoy",
-                        total: "$" + this.resultadoCartas.totalVentasDia,
-                        icono: "cart-outline",
-                        colorTexto: "has-text-info",
-                        ruta: "/reporte-ventas"
-                    },
-                    {
-                        encabezado: "Estado mesas",
-                        titulo: "Mesas ocupadas",
-                        total: this.resultadoCartas.numeroMesasOcupadas,
-                        icono: "table-furniture",
-                        colorTexto: "has-text-success",
-                        ruta: "/realizar-orden"
-                    },
-                    {
-                        encabezado: "Usuarios registrados",
-                        titulo: "Usuarios",
-                        total: this.resultadoCartas.numeroUsuarios,
-                        icono: "account",
-                        colorTexto: "has-text-danger",
-                        ruta: "/usuarios"
-                    },
-                    {
-                        encabezado: "Alimentos registrados",
-                        titulo: "Alimentos",
-                        total: this.resultadoCartas.numeroInsumos,
-                        icono: "food-fork-drink",
-                        colorTexto: "has-text-warning",
-                        ruta: "/insumos"
-                    },
-                    {
-                        encabezado: "Total ventas",
-                        titulo: "Ventas",
-                        total: "$" + this.resultadoCartas.totalVentas,
-                        icono: "cart-outline",
-                        colorTexto: "has-text-primary",
-                        ruta: "/reporte-ventas"
-                    },
-                ]
-                 this.cargando = false
-            })
         },
 
-        
+        obtenerDatos() {
+            this.cargando = true
+            HttpService.obtenerConDatos(this.filtros, "inicio.php")
+                .then(resultado => {
+                    this.ventasSemana = Utiles.cambiarDiaSemana(resultado.ventasDiasSemana)
+                    this.ventasHora = resultado.ventasHora
+                    this.ventasMeses = Utiles.cambiarNumeroANombreMes(resultado.ventasMeses)
+                    this.ventasUsuarios = resultado.ventasUsuario
+                    this.resultadoCartas = resultado.cartas
+                    this.insumosMasVendidos = this.calcularProgreso(resultado.insumosMasVendidos)
+                    this.totalesPorMesa = this.calcularProgreso(resultado.totalesPorMesa)
+
+                    this.totalVentasHora = Utiles.calcularTotales(this.ventasHora)
+                    this.totalVentasSemana = Utiles.calcularTotales(this.ventasSemana)
+                    this.totalVentasUsuarios = Utiles.calcularTotales(this.ventasUsuarios)
+                    this.totalVentasMeses = Utiles.calcularTotales(this.ventasMeses)
+
+                    Utiles.generarGrafica(this.ventasSemana, "#contenedor-semana", "#grafica-semana", "grafica-semana")
+                    Utiles.generarGrafica(this.ventasHora, "#contenedor-hora", "#grafica-hora", "grafica-hora")
+                    Utiles.generarGrafica(this.ventasMeses, "#contenedor-mes", "#grafica-mes", "grafica-mes")
+                    Utiles.generarGrafica(this.ventasUsuarios, "#contenedor-usuarios", "#grafica-usuarios", "grafica-usuarios")
+                    this.cartas = [
+                        {
+                            encabezado: "Ventas del día",
+                            titulo: "Ventas hoy",
+                            total: "$" + this.resultadoCartas.totalVentasDia,
+                            icono: "cart-outline",
+                            colorTexto: "has-text-info",
+                            ruta: "/reporte-ventas"
+                        },
+                        {
+                            encabezado: "Estado mesas",
+                            titulo: "Mesas ocupadas",
+                            total: this.resultadoCartas.numeroMesasOcupadas,
+                            icono: "table-furniture",
+                            colorTexto: "has-text-success",
+                            ruta: "/realizar-orden"
+                        },
+                        {
+                            encabezado: "Usuarios registrados",
+                            titulo: "Usuarios",
+                            total: this.resultadoCartas.numeroUsuarios,
+                            icono: "account",
+                            colorTexto: "has-text-danger",
+                            ruta: "/usuarios"
+                        },
+                        {
+                            encabezado: "Alimentos registrados",
+                            titulo: "Alimentos",
+                            total: this.resultadoCartas.numeroInsumos,
+                            icono: "food-fork-drink",
+                            colorTexto: "has-text-warning",
+                            ruta: "/insumos"
+                        },
+                        {
+                            encabezado: "Total ventas",
+                            titulo: "Ventas",
+                            total: "$" + this.resultadoCartas.totalVentas,
+                            icono: "cart-outline",
+                            colorTexto: "has-text-primary",
+                            ruta: "/reporte-ventas"
+                        },
+                    ]
+                    this.cargando = false
+                })
+        },
+
+
     }
 })
 </script>
